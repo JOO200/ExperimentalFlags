@@ -1,0 +1,36 @@
+<!DOCTYPE import-control PUBLIC
+    "-//Puppy Crawl//DTD Import Control 1.1//EN"
+    "http://www.puppycrawl.com/dtds/import_control_1_1.dtd">
+
+<import-control pkg="de.terraconia">
+  <allow pkg="java"/>
+  <allow pkg="javax"/>
+  <allow pkg="org.junit"/>
+  <allow pkg="org.hamcrest"/>
+  <allow pkg="org.mockito"/>
+  <allow pkg="junit.framework"/>
+  <allow pkg="com.sk89q"/>
+  <allow pkg="com.google.common"/>
+
+  <subpackage name="wgexperimentalflags">
+    <allow pkg="org.khelekore"/>
+    <allow pkg="org.flywaydb"/>
+    <allow pkg="org.yaml"/>
+
+    <subpackage name="util.profile.resolver">
+      <allow pkg="org.bukkit"/>
+      <allow pkg="io.papermc.lib"/>
+      <allow pkg="com.destroystokyo.paper"/>
+    </subpackage>
+
+    <subpackage name="bukkit">
+      <allow pkg="org.bukkit"/>
+      <allow pkg="org.bstats.bukkit"/>
+      <allow pkg="io.papermc.lib"/>
+      <allow pkg="com.destroystokyo.paper"/>
+      <allow pkg="co.aikar.timings.lib" />
+    </subpackage>
+
+  </subpackage>
+
+</import-control>

@@ -1,0 +1,5 @@
+name: WGExperimentalFlags
+main: de.terraconia.wgexperimentalflags.bukkit.ExperimentalFlagsPlugin
+version: "${internalVersion}"
+depend: [WorldGuard]
+api-version: 1.16
