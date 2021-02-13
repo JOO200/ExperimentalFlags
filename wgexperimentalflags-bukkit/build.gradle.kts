@@ -26,15 +26,12 @@ repositories {
 }
 
 dependencies {
-    "compile"(project(":wgexperimentalflags-core"))
-    //"compile"(project(":worldguard-libs:bukkit"))
     "api"("com.destroystokyo.paper:paper-api:1.16.2-R0.1-SNAPSHOT")
     "implementation"("io.papermc:paperlib:1.0.4")
-    "api"("com.sk89q.worldedit:worldedit-bukkit:${Versions.WORLDEDIT}") { isTransitive = false }
+    "api"("com.sk89q.worldedit:worldedit-bukkit:${Versions.WORLDEDIT}")
+    "api"("com.sk89q.worldguard:worldguard-bukkit:${Versions.WORLDGUARD}")
     "implementation"("com.google.guava:guava:${Versions.GUAVA}")
-    "implementation"("com.sk89q:commandbook:2.3") { isTransitive = false }
     "implementation"("org.bstats:bstats-bukkit:1.7")
-    "implementation"("co.aikar:minecraft-timings:1.0.4")
 }
 
 tasks.named<Upload>("install") {

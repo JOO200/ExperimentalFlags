@@ -71,7 +71,7 @@ fun Project.applyPlatformAndCoreConfiguration() {
         add("archives", tasks.named("javadocJar"))
     }
 
-    if (name == "wgexperimentalflags-core" || name == "wgexperimentalflags-bukkit") {
+    if (name == "wgexperimentalflags-bukkit") {
         tasks.register<Jar>("sourcesJar") {
             dependsOn("classes")
             archiveClassifier.set("sources")
@@ -102,11 +102,6 @@ fun Project.applyPlatformAndCoreConfiguration() {
 fun Project.applyShadowConfiguration() {
     tasks.named<ShadowJar>("shadowJar") {
         archiveClassifier.set("dist")
-        dependencies {
-            include(project(":wgexperimentalflags-libs:core"))
-            //include(project(":wgexperimentalflags-libs:${project.name.replace("wgexperimentalflags-", "")}"))
-            include(project(":wgexperimentalflags-core"))
-        }
         exclude("GradleStart**")
         exclude(".cache")
         exclude("LICENSE*")
