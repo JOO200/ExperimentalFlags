@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a way in which WorldGuard is not working as intended
+about: Report a way in which WorldGuardExperimentalFlags is not working as intended
 title: ''
 labels: type:bug, status:pending
 assignees: ''
@@ -12,6 +12,8 @@ assignees: ''
 WorldEdit version:
 
 WorldGuard version:
+
+WGExperimentalFlags version:
 
 Platform version:
 

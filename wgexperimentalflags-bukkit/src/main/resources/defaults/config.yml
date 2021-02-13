@@ -1,5 +1,5 @@
 #
-# WorldGuard's configuration file
+# WorldGuardExperimentalFlags's configuration file
 #
 # About editing this file:
 # - DO NOT USE TABS. You MUST use spaces or Bukkit will complain. If
@@ -15,8 +15,8 @@
 # - Lines starting with # are commentsand so they are ignored.
 #
 # WARNING:
-# Remember to check the compatibility spreadsheet for WorldGuard to see
-# if any features are currently broken in your version of Bukkit.
+# Remember to check the compatibility spreadsheet for WorldGuardExperimentalFlags
+# to see if any features are currently broken in your version of Bukkit.
 #
 
 # -- This should be automatically replaced by the plugin in-game --
