@@ -26,7 +26,9 @@ import com.sk89q.worldguard.protection.association.RegionAssociable;
 import com.sk89q.worldguard.protection.flags.StateFlag;
 import com.sk89q.worldguard.protection.regions.RegionQuery;
 import de.terraconia.wgexperimentalflags.bukkit.ExperimentalFlags;
+import de.terraconia.wgexperimentalflags.bukkit.ExperimentalFlagsPlugin;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,6 +36,12 @@ import org.bukkit.event.Listener;
 public class PathfindingListener implements Listener {
     @EventHandler(ignoreCancelled = true)
     public void onPathfinding(EntityPathfindEvent event) {
+        World world = event.getEntity().getWorld();
+        if (!ExperimentalFlagsPlugin.getInstance().getConfiguration()
+                .get(BukkitAdapter.adapt(world)).usePathfindingEvent) {
+            return;
+        }
+
         Location loc = event.getLoc();
         Entity entity = event.getEntity();
         EntityType type = BukkitAdapter.adapt(entity.getType());
@@ -41,7 +49,7 @@ public class PathfindingListener implements Listener {
         RegionQuery query = WorldGuard.getInstance().getPlatform().getRegionContainer().createQuery();
 
         if (!StateFlag.test(query.queryMapValue(BukkitAdapter.adapt(loc), (RegionAssociable) null,
-                ExperimentalFlags.PATHFINDING_MOB_TYPE, type, ExperimentalFlags.PATHFINDING_MOB))) {
+                ExperimentalFlags.PATHFINDING_TYPE, type, ExperimentalFlags.PATHFINDING))) {
             event.setCancelled(true);
         }
     }

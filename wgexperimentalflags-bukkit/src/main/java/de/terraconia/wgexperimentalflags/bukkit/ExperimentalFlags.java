@@ -18,6 +18,7 @@
 
 package de.terraconia.wgexperimentalflags.bukkit;
 
+import com.sk89q.worldedit.world.block.BlockType;
 import com.sk89q.worldedit.world.entity.EntityType;
 import com.sk89q.worldguard.WorldGuard;
 import com.sk89q.worldguard.protection.flags.Flag;
@@ -40,11 +41,31 @@ public class ExperimentalFlags {
 
     // Specific flags for Paper
     // This flag does prevent the pathfinding from specific mob types or all mob types.
-    public static final MapFlag<EntityType, StateFlag.State> PATHFINDING_MOB_TYPE =
-            registerPaper(new MapFlag<>("pathfinding-mob-type",
+    public static final MapFlag<EntityType, StateFlag.State> PATHFINDING_TYPE =
+            registerPaper(new MapFlag<>("pathfinding-type",
                     new RegistryFlag<EntityType>(null, EntityType.REGISTRY),
                     new StateFlag(null, true)));
-    public static final StateFlag PATHFINDING_MOB = registerPaper(new StateFlag("pathfinding", true));
+    public static final StateFlag PATHFINDING = registerPaper(new StateFlag("pathfinding", true));
+
+    public static final MapFlag<BlockType, StateFlag.State> BLOCK_INTERACT_TYPE =
+            register(new MapFlag<>("interact-block-type",
+                    new RegistryFlag<>(null, BlockType.REGISTRY),
+                    new StateFlag(null, true)));
+    public static final MapFlag<BlockType, StateFlag.State> ENTITY_INTERACT_TYPE =
+            register(new MapFlag<>("interact-entity-type",
+                    new RegistryFlag<>(null, BlockType.REGISTRY),
+                    new StateFlag(null, true)));
+
+    public static final MapFlag<BlockType, StateFlag.State> BLOCK_BREAK_TYPE =
+            register(new MapFlag<>("block-break-type",
+                    new RegistryFlag<>(null, BlockType.REGISTRY),
+                    new StateFlag(null, true)));
+
+    public static final MapFlag<BlockType, StateFlag.State> BLOCK_PLACE_TYPE =
+            register(new MapFlag<>("block-place-type",
+                    new RegistryFlag<>(null, BlockType.REGISTRY),
+                    new StateFlag(null, true)));
+
 
     private ExperimentalFlags() {
 

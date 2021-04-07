@@ -18,12 +18,16 @@
 
 package de.terraconia.wgexperimentalflags.bukkit;
 
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import de.terraconia.wgexperimentalflags.bukkit.bukkit.AbstractionListener;
+import de.terraconia.wgexperimentalflags.bukkit.config.BukkitConfigurationManager;
 import de.terraconia.wgexperimentalflags.bukkit.paper.PathfindingListener;
 import io.papermc.lib.PaperLib;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ExperimentalFlagsPlugin extends JavaPlugin {
+    private BukkitConfigurationManager configuration;
 
     private static ExperimentalFlagsPlugin instance;
     public static ExperimentalFlagsPlugin getInstance() {
@@ -38,9 +42,17 @@ public class ExperimentalFlagsPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        configuration = new BukkitConfigurationManager(this);
+        configuration.load();
+
         if (PaperLib.isPaper()) {
             Bukkit.getPluginManager().registerEvents(new PathfindingListener(), this);
         }
+        Bukkit.getPluginManager().registerEvents(new AbstractionListener(), this);
 
+    }
+
+    public BukkitConfigurationManager getConfiguration() {
+        return configuration;
     }
 }
